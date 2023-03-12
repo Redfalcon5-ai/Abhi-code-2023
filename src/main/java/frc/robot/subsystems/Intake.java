@@ -58,7 +58,7 @@ public class Intake extends SubsystemBase {
   @Override
   public void periodic() {
     if(leftTrigger > 0){
-        power(leftTrigger);
+        power(-leftTrigger);
     }
     else if(rightTrigger > 0){
         power(rightTrigger);

@@ -34,6 +34,7 @@ public class RobotContainer {
   private final Gantry gantry = new Gantry();
   private final Wrist wrist = new Wrist();
   private final Swerve swerve = new Swerve();
+  private final Intake intake = new Intake();
 
   private final CommandXboxController driver = new CommandXboxController(0);
   private final CommandXboxController opp = new CommandXboxController(1);
@@ -48,6 +49,7 @@ public class RobotContainer {
 
     elevator.setDefaultCommand(new setElevator(elevator, () -> -opp.getRawAxis(1)*1.27, () -> elevator.getTarget()));
     gantry.setDefaultCommand(new setGantry(gantry, () -> opp.getRawAxis(0), () -> gantry.getTarget()));
+    intake.setDefaultCommand(new setIntake(intake, () -> opp.getRawAxis(2)*1.27, () -> opp.getRawAxis(3)*1.27));
 
     swerve.setDefaultCommand(
             new TeleopSwerve(
